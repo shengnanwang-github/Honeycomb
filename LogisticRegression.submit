@@ -1,7 +1,7 @@
-executable      =   DistributedHTC/Model/LogisticRegression/model.py
-Output          =   DistributedHTC/Model/LogisticRegression/output.txt
-Error           =   DistributedHTC/Model/LogisticRegression/error.txt
-Log             =   DistributedHTC/Model/LogisticRegression/log.txt
+executable      =   Honeycomb/Model/LogisticRegression/model.py
+Output          =   Honeycomb/Model/LogisticRegression/output.txt
+Error           =   Honeycomb/Model/LogisticRegression/error.txt
+Log             =   Honeycomb/Model/LogisticRegression/log.txt
 
 notification=Never
 Arguements=$(Process)

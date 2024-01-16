@@ -1,7 +1,7 @@
-executable      =   DistributedHTC/EDA/eda.py
-Output          =   DistributedHTC/EDA/output.txt
-Error           =   DistributedHTC/EDA/error.txt
-Log             =   DistributedHTC/EDA/log.txt
+executable      =   Honeycomb/EDA/eda.py
+Output          =   Honeycomb/EDA/output.txt
+Error           =   Honeycomb/EDA/error.txt
+Log             =   Honeycomb/EDA/log.txt
 
 notification=Never
 Arguements=$(Process)

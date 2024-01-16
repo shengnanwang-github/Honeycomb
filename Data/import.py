@@ -1,3 +1,9 @@
+#!/usr/bin/env python
+# conding: utf-8
+# 1.Import libraries
+# The first step in building the model is to import the necessary libraries.
+
+
 import pandas as pd
 
 # Load the dataset
