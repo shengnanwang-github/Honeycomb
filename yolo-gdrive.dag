@@ -1,6 +1,6 @@
 # DAGMan workflow
 # file name: yolo-gdrive.dag
 
-JOB A yolo.sub
-JOB B gdrive.sub
+JOB A LogisticRegression.py
+JOB B RandomForest.py
 PARENT A CHILD B
