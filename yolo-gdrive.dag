@@ -1,0 +1,6 @@
+# DAGMan workflow
+# file name: yolo-gdrive.dag
+
+JOB A yolo.sub
+JOB B gdrive.sub
+PARENT A CHILD B
