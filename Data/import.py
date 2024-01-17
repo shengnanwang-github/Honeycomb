@@ -7,8 +7,9 @@
 import pandas as pd
 
 # Load the dataset
-# dataset_path = '/content/survey_cleaned.csv'
-dataset_path = '/content/survey_cleaned.csv'
+# dataset_path = '/home/ubuntu/Honeycomb/Data/Data.csv'
+
+dataset_path = '/home/ubuntu/Honeycomb/Data/Data.csv'
 data = pd.read_csv(dataset_path)
 df = pd.read_csv(dataset_path)
 data_types = df.dtypes
@@ -32,4 +33,5 @@ print(missing_values)
 print("\nUnique Values:")
 print(unique_values)
 # Display the first few rows of the dataset to understand its structure
+
 data.head()

@@ -7,7 +7,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
 
 # Load the dataset
-file_path = '/content/survey_cleaned.csv' 
+file_path = '/home/ubuntu/Honeycomb/Data/clean_data.csv'
 data = pd.read_csv(file_path, parse_dates=['Timestamp'])
 
 # Select features and the target variable

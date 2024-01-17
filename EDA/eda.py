@@ -1,19 +1,22 @@
 #------------------------------------------------------------the distribution of mental health issues across different countries-----------------------------------------------------------
-
+#!/usr/bin/env python
+# coding: utf-8
 # We will create visualizations to illustrate the distribution of mental health issues across different countries.
 
+import os
 import matplotlib.pyplot as plt
 import seaborn as sns
+import pandas as pd
+
+# Load data
+data = pd.read_csv('/home/ubuntu/Honeycomb/Data/clean_data.csv')
 
 # Setting the aesthetics for the plots
 sns.set(style="whitegrid")
 
 # Geographical Analysis: Distribution of mental health issues across countries
-# We'll focus on countries with a significant number of respondents for meaningful analysis
 country_counts = data['Country'].value_counts()
 significant_countries = country_counts[country_counts > 10]  # Countries with more than 10 respondents
-
-# Filtering the dataset for these countries
 significant_data = data[data['Country'].isin(significant_countries.index)]
 
 # Plotting the distribution of mental health issues in these countries
@@ -23,6 +26,15 @@ plt.xticks(rotation=45)
 plt.title('Distribution of Mental Health Issues Across Countries')
 plt.xlabel('Country')
 plt.ylabel('Number of Respondents')
+
+# Create a directory for saving plots if it doesn't exist
+save_dir = "/home/ubuntu/Honeycomb/EDA"
+os.makedirs(save_dir, exist_ok=True)
+
+# Save the plot
+plt.savefig(os.path.join(save_dir, "Distribution.png"))
+
+# Show the plot
 plt.show()
 
 #------------------------------------------------------------------age group analysis-------------------------------------------------------------
@@ -38,11 +50,20 @@ sns.countplot(x='Age_Group', data=data, palette="Set1")
 plt.title('Distribution of Respondents Across Age Groups')
 plt.xlabel('Age Group')
 plt.ylabel('Number of Respondents')
+
+# Create a directory for saving plots if it doesn't exist
+save_dir = "/home/ubuntu/Honeycomb/EDA"
+os.makedirs(save_dir, exist_ok=True)
+
+# Save the plot
+plt.savefig(os.path.join(save_dir, "Age_Distribution.png"))
+
+# Show the plot
 plt.show()
 
 #------------------------------------------------------------------------Correlation between Family History and Treatment-------------------------------------------------------
 
-## Creating a crosstab for family history and treatment
+# Creating a crosstab for family history and treatment
 family_history_treatment = pd.crosstab(data['family_history'], data['treatment'])
 
 # Plotting the correlation between family history and treatment
@@ -51,17 +72,27 @@ sns.heatmap(family_history_treatment, annot=True, fmt="d", cmap="YlGnBu")
 plt.title('Correlation between Family History and Treatment')
 plt.xlabel('Treatment')
 plt.ylabel('Family History of Mental Health Issues')
+
+# Create a directory for saving plots if it doesn't exist
+save_dir = "/home/ubuntu/Honeycomb/EDA"
+os.makedirs(save_dir, exist_ok=True)
+
+# Save the plot
+plt.savefig(os.path.join(save_dir, "Family_History_Correlation.png"))
+
+# Show the plot
 plt.show()
 
 #----------------------------------------------------------------------------------heatmap of variables correlation with treatment-----------------------------------------------------
 
-import pandas as pd
-import seaborn as sns
+import os
 import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 
 # Load the dataset
-file_path = '/content/survey_cleaned.csv'
+file_path = '/home/ubuntu/Honeycomb/Data/clean_data.csv'
 data = pd.read_csv(file_path)
 
 # Convert categorical features to numerical
@@ -88,4 +119,14 @@ corr = data[features + ['treatment']].corr()
 plt.figure(figsize=(10, 8))
 sns.heatmap(corr, annot=True, fmt=".2f")
 plt.title('Heatmap of Variables Correlation with Treatment')
+
+# Create a directory for saving plots if it doesn't exist
+save_dir = "/home/ubuntu/Honeycomb/EDA"
+os.makedirs(save_dir, exist_ok=True)
+
+# Save the plot
+plt.savefig(os.path.join(save_dir, "Variables_Correlation_Heatmap.png"))
+
+# Show the plot
 plt.show()
+
